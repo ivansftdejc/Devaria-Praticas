@@ -1,0 +1,32 @@
+h1.title{
+    margin: 40px auto 20px;
+    
+}
+.text-center{
+    text-align: center;
+}
+.title{
+    padding: 0 20px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+main .contact-form>div{
+    margin: 15px 0px ;
+
+}
+main .contact-form > div label{
+    display: block;
+    margin-bottom: 10px;
+}
+main .contact-form input,
+main .contact-form select,
+main .contact-form textarea
+{
+    width: 90%;
+    padding: 5px 15px;
+    outline-color: #3bd42d;
+}
+main .contact-form textarea
+{
+    width: 100%;
+}
