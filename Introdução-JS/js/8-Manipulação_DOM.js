@@ -10,3 +10,12 @@ let Elementos_Tag= document.getElementsByTagName("h2");
 let Elemento_Tag=Elementos_Tag[1];
 console.log(Elemento_Tag);
 
+//Criação da função Alteração do HTML
+const Título= document.getElementById('título');
+const Subtítulo=document.getElementById('subtítulo');
+function alterarHtml(){
+    Título.textContent="Título 1";
+    Título.style.fontFamily="Segoe";
+    Título.style.fontSize="100px";
+}
+
