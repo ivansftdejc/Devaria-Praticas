@@ -12,7 +12,7 @@ console.log(Elemento_Tag);
 
 //Criação da função Alteração do HTML
 const Título= document.getElementById('título');
-const Subtítulo=document.getElementById('subtítulo');
+const Texto_Html=document.getElementById('Texto');
 const Texto_input=document.getElementById('input_dinámico');
 const Elemento_Margin_2=document.getElementsByClassName('mt-2');
 function alterarHtml(){
@@ -23,7 +23,13 @@ function alterarHtml(){
     for(let elemento_margin of Elemento_Margin_2){
         elemento_margin.className='mt-4 p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3'
     }
-    Texto_input.value='';
+  
 
+    //Adicionando textos com DOM
+    const novo_Parágrafo= document.createElement('p');
+    novo_Parágrafo.textContent=Texto_input.value;
+    Texto_Html.parentNode.appendChild(novo_Parágrafo);
+
+    Texto_input.value='';
 }
 
