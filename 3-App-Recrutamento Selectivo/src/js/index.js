@@ -166,7 +166,7 @@ function init(){
         if($textarea_habilidades_valido && $textarea_pontosForte_valido){
             $containerBtnForm3.removeClass('disabled');
             $btnForm3.removeClass('disabled');
-            $btnForm3.off('click').on('click',finalizar);
+            $btnForm3.off('click').on('click',Salvar);
         }else{
             $containerBtnForm3.addClass('disabled');
             $btnForm3.addClass('disabled');
@@ -189,5 +189,57 @@ function init(){
         $step_description.hide();
         $step_mensagem_Final.text('Muito Obrigado pela sua inscrição');
         $step_considerações_Finais.text('Entraremos em contacto assim que possível. O nosso prazo médio é de 5 dias úteis. Fique atento na sua caixa de e-mail!');
+    }
+    async function Salvar(){
+        try {
+            const _nome=$input_nome.val();
+            const _sobrenome=$input_sobrenome.val();
+            const _e_mail=$input_email.val();
+            const _dataNascimento=$input_dataNascimento.val();
+            const _minibio=$input_minibio.val();
+            const _enderco=$input_endereco.val();
+            const _complemento=$input_complemento.val();
+            const _cidade=$input_cidade.val();
+            const _codigo_postal=$input_codigo_postal.val();
+            const _habilidade=$textarea_habilidades.val();
+            const _pontosForte=$textarea_pontosForte.val();
+
+            const body={
+                name:"Candidato- "+_nome+" "+_sobrenome,
+                desc:`
+
+                ---Dados Pessoais---
+                Nome: ${_nome} ${_sobrenome}
+                E-mail: ${_e_mail}
+                Data de Nascimento: ${_dataNascimento}
+                Biografia: ${_minibio}
+
+                ---Dados de Localização---
+                
+                Endereço: ${_enderco} ${_complemento}
+                Cidade: ${_cidade}
+                Código Postal: ${_codigo_postal}
+
+                ---Outros dados---
+
+                Habilidades: ${_habilidade}
+                Pontos Fortes: ${_pontosForte}
+                `
+            }
+
+            await fetch('https://api.trello.com/1/cards?idList=654fbb8644583fb52c09841b&key=ADDKEY&token=ADDTOKEN',{
+                method:'post',
+                headers:{
+                    "content-type":"application/JSON"
+                },
+                body:JSON.stringify(body)
+            })
+            
+            return finalizar();
+        } catch (e) {
+            console.log(`Erro: ${e}`)
+            
+        }
+
     }
 init();
