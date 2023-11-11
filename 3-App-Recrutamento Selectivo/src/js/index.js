@@ -151,9 +151,34 @@ function init(){
         $step_3.show();
     }
     //------Validação da Step3------------
-    
+    $textarea_habilidades=$('#habilidades');
+    $textarea_pontosForte=$('#pontosForte');
 
+    $textarea_habilidades_valido=false;
+    $textarea_pontosForte_valido=false;
 
-    
+    $containerBtnForm3=$('#containerBtnFormThree');
+    $btnForm3=$('#btnFormThree');
+
+    let minLength=5;
+
+    function Validar_Form_3(){
+        if($textarea_habilidades_valido && $textarea_pontosForte_valido){
+            $containerBtnForm3.removeClass('disabled');
+            $btnForm3.removeClass('disabled');
+            $btnForm3.off('click').on('click');
+        }else{
+            $containerBtnForm3.addClass('disabled');
+            $btnForm3.addClass('disabled');
+        }             
+    }
+    $textarea_habilidades.keyup(function(){
+        $textarea_habilidades_valido=Validar_input(this,minLength);
+        Validar_Form_3();
+    });
+    $textarea_pontosForte.keyup(function(){
+        $textarea_pontosForte_valido=Validar_input(this,minLength);
+        Validar_Form_3();
+    });  
 }
 init();
