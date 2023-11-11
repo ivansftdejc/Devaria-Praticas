@@ -23,7 +23,7 @@ let minibio_Valido=false;
 function init(){
     $step_2.hide();
     $step_3.hide();
-
+}
     $step_text.text('Passo 1 de 3 - Dados Pessoais');
     $step_description.text('Descreva seus dados para que possamos te conhecer melhor');
 
@@ -166,10 +166,11 @@ function init(){
         if($textarea_habilidades_valido && $textarea_pontosForte_valido){
             $containerBtnForm3.removeClass('disabled');
             $btnForm3.removeClass('disabled');
-            $btnForm3.off('click').on('click');
+            $btnForm3.off('click').on('click',finalizar);
         }else{
             $containerBtnForm3.addClass('disabled');
             $btnForm3.addClass('disabled');
+            $btnForm3.off('click');
         }             
     }
     $textarea_habilidades.keyup(function(){
@@ -179,6 +180,14 @@ function init(){
     $textarea_pontosForte.keyup(function(){
         $textarea_pontosForte_valido=Validar_input(this,minLength);
         Validar_Form_3();
-    });  
-}
+    });
+    $step_mensagem_Final=$('#title');
+    $step_considerações_Finais=$('#step-text');
+
+    function finalizar(){
+        $step_3.hide();
+        $step_description.hide();
+        $step_mensagem_Final.text('Muito Obrigado pela sua inscrição');
+        $step_considerações_Finais.text('Entraremos em contacto assim que possível. O nosso prazo médio é de 5 dias úteis. Fique atento na sua caixa de e-mail!');
+    }
 init();
