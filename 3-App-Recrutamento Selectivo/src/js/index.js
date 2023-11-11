@@ -134,12 +134,25 @@ function init(){
         if(validar_cidade&&validar_codigo_postal&&validar_endereco){
         $containerBtnForm2.removeClass('disabled');
         $btnForm2.removeClass('disabled');
+        $btnForm2.off('click').on('click',Abrir_Form_3);
         }else{
             $containerBtnForm2.addClass('disabled');
             $btnForm2.addClass('disabled');
+            $btnForm2.off('click');
         }
 
     }
+        //---------------Step3------------
+
+    function Abrir_Form_3(){
+        $step_text.text('Passo 3 de 3 - Conte-nos sobre você');
+        $step_description.text('Não economize palavras, aqui é onde você pode se destacar');
+        $step_2.hide();
+        $step_3.show();
+    }
+    //------Validação da Step3------------
+    
+
 
     
 }
