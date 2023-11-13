@@ -82,7 +82,7 @@ function init(){
         this.type='date';        
     });
     $input_dataNascimento.on('blur',function() {
-        if(!this.value){
+        if(!this.value||this.value.trim().length<6){
             this.type='text';
         }     
     });
