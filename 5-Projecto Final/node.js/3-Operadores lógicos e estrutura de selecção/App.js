@@ -2,7 +2,8 @@ const readLine = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
 });
-console.log('Este Programa verifica se você tem idade para Conduzir')
+console.log('Este Programa verifica se você tem idade para Conduzir\n'+
+'E Verifica se o seu nome está cadastrado')
 let idade;
 readLine.question('Quantos anos você tem?\n', input => {
     idade = input
