@@ -18,4 +18,8 @@ do {
     console.log(`O argumento ${argumentos[index]} Pertence ao Índice ${index} `);
     index++;
 }while (index<=argumentos.length)
-
+//Estrutura For of
+console.log('--------------Estrutura For of---------------');
+for (const argumento of argumentos) {
+    console.log(argumento);   
+}
