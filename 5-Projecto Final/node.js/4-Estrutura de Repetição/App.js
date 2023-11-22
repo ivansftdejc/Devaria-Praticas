@@ -11,4 +11,11 @@ while (index<argumentos.length) {
     console.log(`O argumento ${argumentos[index]} Pertence ao Índice ${index} `);
     index++;
 }
+//Estrutura do while
+console.log('--------------Estrutura do While---------------');
+index = 0;
+do {
+    console.log(`O argumento ${argumentos[index]} Pertence ao Índice ${index} `);
+    index++;
+}while (index<=argumentos.length)
 
