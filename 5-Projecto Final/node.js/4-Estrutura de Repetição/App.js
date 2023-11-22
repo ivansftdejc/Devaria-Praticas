@@ -11,3 +11,4 @@ while (index<argumentos.length) {
     console.log(`O argumento ${argumentos[index]} Pertence ao Índice ${index} `);
     index++;
 }
+
